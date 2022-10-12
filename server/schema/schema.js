@@ -163,7 +163,8 @@ const mutation = new GraphQLObjectType({
               completed: { value: "Completed" }
             }
           })
-        }
+        },
+        clientId: { type: new GraphQLNonNull(GraphQLID) }
       },
       resolve(parent, args) {
         return ProjectModel.findByIdAndUpdate(
@@ -172,7 +173,8 @@ const mutation = new GraphQLObjectType({
             $set: {
               name: args.name,
               description: args.description,
-              status: args.status
+              status: args.status,
+              clientId: args.clientId
             }
           },
           { new: true }
