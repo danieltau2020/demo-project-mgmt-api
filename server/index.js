@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 })
 
 app.use(
-  "/graphql",
+  "/api",
   graphqlHTTP({
     schema,
     graphiql: process.env.NODE_ENV === "development"
